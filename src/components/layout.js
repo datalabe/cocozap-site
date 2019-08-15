@@ -6,8 +6,8 @@ import MapInfo from './MapInfo'
 import Participate from './Participate'
 import AccessData from './AccessData'
 import About from './About'
-import CallToAction from './CallToAction'
 import SocialMediaBar from './SocialMediaBar'
+import dataMarkers from '../data/markers'
 import './layout.scss'
 
 class Layout extends Component {
@@ -26,13 +26,25 @@ class Layout extends Component {
         long: -43.244659,
         triedToSolve: 'nao menciona',
         externalHelp: 'nao se aplica',
+        totalAmount: 25,
+        categoryAmount: 2,
       },
     }
   }
 
   handleMapInfo(info) {
+    const totalAmount = dataMarkers.length
+    const categoryItems = dataMarkers.filter(item => {
+      return item.category === info.category
+    })
+    const categoryAmount = categoryItems.length
+
     this.setState({
-      mapInfo: info,
+      mapInfo: {
+        ...info,
+        totalAmount,
+        categoryAmount,
+      },
     })
   }
 
@@ -47,7 +59,6 @@ class Layout extends Component {
         <Participate />
         <AccessData />
         <About />
-        <CallToAction />
         <div className="socialMediaBottom">
           <SocialMediaBar />
         </div>

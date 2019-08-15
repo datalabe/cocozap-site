@@ -10,18 +10,35 @@ const convertDate = date => {
   return `${day}/${month}/${year}`
 }
 
-const MapInfo = ({ picture, category, location, frequency, date }) => (
+const MapInfo = ({
+  picture,
+  category,
+  location,
+  frequency,
+  date,
+  categoryAmount,
+  totalAmount,
+}) => (
   <div className="MapInfo">
     <div className="mapInfoWrapper">
       <SectionTitle text={'Infos do Mapa'} />
       <div className="infoWrapper">
         <div className="photo">
-          <img src={`http://cocozap.datalabe.org/images/${picture}.jpeg`} />
+          <img
+            src={`http://cocozap.datalabe.org/images/${picture}.jpeg`}
+            alt="map illustration"
+          />
         </div>
         <div className="text-info">
-          <div className="category">{`Categoria: ${category}`}</div>
           <div className="location">{`Favela: ${location}`}</div>
           <div className="frequency">{`Frequência: ${frequency}`}</div>
+          <div className="category">{`Categoria: ${category}`}</div>
+          <div className="category">{`Total de notificações: ${totalAmount}`}</div>
+          <div className="category">{`Total por categoria (${category}): ${categoryAmount}`}</div>
+          <div className="category">
+            {`Porcentagem de notificações`}
+            <br /> {`da categoria: ${(categoryAmount * 100) / totalAmount}%`}
+          </div>
           <div className="update">{`Última atualização: ${convertDate(
             date
           )}`}</div>

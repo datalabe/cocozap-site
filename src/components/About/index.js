@@ -1,5 +1,6 @@
 import React from 'react'
 import SectionTitle from '../SectionTitle'
+import CallToAction from '../CallToAction'
 import './style.scss'
 
 const About = () => (
@@ -8,7 +9,11 @@ const About = () => (
       <SectionTitle text={'Sobre'} />
       <div className="about-text">
         As equipes do data_labe e da{' '}
-        <a href="http://casafluminense.org.br/" target="_blank">
+        <a
+          href="http://casafluminense.org.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Casa Fluminense
         </a>{' '}
         estão trabalhando desde 2017 em parceria para construir um canal de
@@ -27,11 +32,19 @@ const About = () => (
         <br />
         <br />
         Este primeiro piloto foi desenvolvido com o apoio do{' '}
-        <a href="https://www.casa.org.br/en/" target="_blank">
+        <a
+          href="https://www.casa.org.br/en/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Fundo Socioambiental Casa
         </a>{' '}
         e parceria com a{' '}
-        <a href="http://redesdamare.org.br/" target="_blank">
+        <a
+          href="http://redesdamare.org.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Redes da Maré
         </a>
         . Nós selecionamos quatro jovens moradores da Maré. Duas mobilizadoras
@@ -45,7 +58,11 @@ const About = () => (
         <br />
         <br /> Questões ligadas a cultura do lixo, os debates metodológicos e os
         relatos sobre essa primeira experiência na Maré você encontra na{' '}
-        <a href="https://medium.com/cocozap" target="_blank">
+        <a
+          href="https://medium.com/cocozap"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           revista do cocôzap no medium
         </a>
         . A intenção é que o projeto seja desenvolvido em etapas a partir das
@@ -56,6 +73,7 @@ const About = () => (
         financiamento direto. Se você conhece alguém que pode se interessar pelo
         projeto, envie nossos contatos.
       </div>
+      <CallToAction />
     </div>
   </div>
 )

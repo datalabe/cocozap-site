@@ -11,6 +11,7 @@ const Participate = () => (
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSdIzJi0pMYm1yEoNNbCScu1YVzAxTPslEPEkdQMaVw9wPH6YA/viewform?fbzx=6840870675821074000"
           target="_blank"
+          rel="noopener noreferrer"
         >
           neste link
         </a>

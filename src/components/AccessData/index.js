@@ -11,6 +11,7 @@ const AccessData = () => (
         <a
           href="https://docs.google.com/spreadsheets/d/1uZN2hbCu94HBJ_-L7W58nUTOXTqkGEkv4Clv2gmPDnA/edit?usp=sharing"
           target="_blank"
+          rel="noopener noreferrer"
         >
           tabela no Google Sheets
         </a>{' '}
@@ -18,6 +19,7 @@ const AccessData = () => (
         <a
           href="http://cocozap.datalabe.org/api/cocozap-data.json"
           target="_blank"
+          rel="noopener noreferrer"
         >
           API em Json
         </a>

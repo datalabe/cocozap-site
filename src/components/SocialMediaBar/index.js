@@ -8,16 +8,32 @@ import './style.scss'
 const SocialMediaBar = () => (
   <div className="SocialMediaBar">
     <div className="icons">
-      <a href="https://www.facebook.com/datalabe" target="_blank">
+      <a
+        href="https://www.facebook.com/datalabe"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img className="faceIcon" src={faceIcon} alt="facebook" />
       </a>
-      <a href="https://www.instagram.com/data_labe/" target="_blank">
+      <a
+        href="https://www.instagram.com/data_labe/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img className="instaIcon" src={instaIcon} alt="instagram" />
       </a>
-      <a href="https://twitter.com/data_labe" target="_blank">
+      <a
+        href="https://twitter.com/data_labe"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img className="twitterIcon" src={twitterIcon} alt="twitter" />
       </a>
-      <a href="https://medium.com/cocozap" target="_blank">
+      <a
+        href="https://medium.com/data-labe"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img className="mediumIcon" src={mediumIcon} alt="medium" />
       </a>
     </div>

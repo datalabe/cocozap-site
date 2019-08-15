@@ -4,7 +4,7 @@ import './style.scss'
 
 const MainLogo = () => (
   <div className="MainLogo">
-    <img className="logo" src={Logo} />
+    <img className="logo" src={Logo} alt="logo" />
     <h1 className="subtitle">
       Mobilização, mapeamento e incidência para saneamento básico em favelas
     </h1>

@@ -1,4 +1,4 @@
-const dateMarkers = [
+const dataMarkers = [
   {
     date: 20181019,
     picture: '20181019_0033_972730791',
@@ -329,4 +329,4 @@ const dateMarkers = [
   },
 ]
 
-export default dateMarkers
+export default dataMarkers

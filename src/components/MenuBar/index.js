@@ -6,8 +6,12 @@ const MenuBar = () => (
   <div className="MenuBar">
     <ul className="menuWrapper">
       <li className="dataLabe">
-        <a href="http://datalabe.org/" target="_blank">
-          Um projeto DataLabe{' '}
+        <a
+          href="http://datalabe.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Um projeto Data_Labe{' '}
         </a>
       </li>
       <li className="about">
@@ -20,7 +24,11 @@ const MenuBar = () => (
         <AnchorLink href="#participate">Participe</AnchorLink>
       </li>
       <li className="method">
-        <a href="https://medium.com/cocozap" target="_blank">
+        <a
+          href="https://medium.com/cocozap"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Método
         </a>
       </li>
