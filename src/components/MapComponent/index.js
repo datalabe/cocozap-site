@@ -17,13 +17,14 @@ class MapComponent extends Component {
           index,
         })
 
-        this.infowindow = new window.google.maps.InfoWindow({
-          content: `${marker.category} (${marker.location})`,
-        })
-
         this.newMarker.addListener('click', e => {
           this.handleMarkerClick(index)
-
+          if (this.infowindow) {
+            this.infowindow.close()
+          }
+          this.infowindow = new window.google.maps.InfoWindow({
+            content: `${marker.category} (${marker.location})`,
+          })
           this.infowindow.setPosition(e.latLng)
           this.infowindow.open(this.map)
           return null

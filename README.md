@@ -19,8 +19,3 @@ gatsby develop
 # build application
 gatsby build
 ```
-
-
-
-
-
