@@ -37,7 +37,7 @@ const MapInfo = ({
           <div className="category">{`Total por categoria (${category}): ${categoryAmount}`}</div>
           <div className="category">
             {`Porcentagem de notificações`}
-            <br /> {`da categoria: ${(categoryAmount * 100) / totalAmount}%`}
+            <br /> {`da categoria: ${Math.round( ((categoryAmount * 100) / totalAmount) * 100 ) / 100 }%`}
           </div>
           <div className="update">{`Última atualização: ${convertDate(
             date

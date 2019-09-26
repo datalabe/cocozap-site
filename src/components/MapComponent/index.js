@@ -9,13 +9,15 @@ class MapComponent extends Component {
         center: { lat: -22.8547769, lng: -43.2432046 },
         zoom: 15,
       })
-      dataMarkers.map((marker, index) => {
+      this.markers = dataMarkers.map((marker, index) => {
         this.newMarker = new window.google.maps.Marker({
           position: { lat: marker.lat, lng: marker.long },
           map: this.map,
           title: marker.location,
           index,
         })
+
+        console.log(marker.lat, marker.long)
 
         this.newMarker.addListener('click', e => {
           this.handleMarkerClick(index)
@@ -29,9 +31,13 @@ class MapComponent extends Component {
           this.infowindow.open(this.map)
           return null
         })
-        return null
+        return this.newMarker
       })
+
+      this.markerCluster = new window.MarkerClusterer(this.map, this.markers,
+        {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'})
     }, 1000)
+
   }
 
   handleMarkerClick = index => {
