@@ -24,10 +24,7 @@ const MapInfo = ({
       <SectionTitle text={'Infos do Mapa'} />
       <div className="infoWrapper">
         <div className="photo">
-          <img
-            src={`http://cocozap.datalabe.org/images/${picture}.jpeg`}
-            alt="map illustration"
-          />
+          <img src={picture} alt="map illustration" />
         </div>
         <div className="text-info">
           <div className="location">{`Favela: ${location}`}</div>
@@ -37,7 +34,10 @@ const MapInfo = ({
           <div className="category">{`Total por categoria (${category}): ${categoryAmount}`}</div>
           <div className="category">
             {`Porcentagem de notificações`}
-            <br /> {`da categoria: ${Math.round( ((categoryAmount * 100) / totalAmount) * 100 ) / 100 }%`}
+            <br />{' '}
+            {`da categoria: ${Math.round(
+              ((categoryAmount * 100) / totalAmount) * 100
+            ) / 100}%`}
           </div>
           <div className="update">{`Última atualização: ${convertDate(
             date

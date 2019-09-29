@@ -7,39 +7,45 @@ import Participate from './Participate'
 import AccessData from './AccessData'
 import About from './About'
 import SocialMediaBar from './SocialMediaBar'
-import dataMarkers from '../data/markers'
+import { API } from '../services/API'
+
 import './layout.scss'
 
 class Layout extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      mapInfo: {
-        date: 20181019,
-        picture: '20181019_0033_972730791',
-        description:
-          'Oi olha só aqui no esgoto da casa 206! Tá um fedor insuportável! Já fiz reclamções na Cedae, e eles disseram que este esgoto precisa de fazer obra e é que isso não é da alçada deles , e sim do dono. Toda vez esse esgoto fica vazando.',
-        category: 'Esgoto a Céu Aberto',
-        frequency: 'Frequentemente',
-        address: 'Rua Massaranduba, 206',
-        location: 'Parque Rubens Vaz',
-        lat: -22.852344,
-        long: -43.2429,
-        triedToSolve: 'sim',
-        externalHelp: '-',
-        totalAmount: 39,
-        categoryAmount: 5,
-      },
+      notifications: [],
+      mapInfo: {},
     }
+    this.handleMapInfo = this.handleMapInfo.bind(this)
+  }
+
+  componentDidMount() {
+    API.getNotifications().then(res => {
+      this.setState({
+        notifications: res.data,
+        mapInfo: {
+          ...res.data[0],
+          categoryAmount: this.getCategoryTotal(res.data[0], res.data),
+          totalAmount: res.data.length,
+        },
+      })
+    })
+  }
+
+  getCategoryTotal = (marker, dataMarkers) => {
+    const categoryItems = dataMarkers.filter(item => {
+      return item.category.toUpperCase() === marker.category.toUpperCase()
+    })
+    const categoryAmount = categoryItems.length
+    return categoryAmount
   }
 
   handleMapInfo(info) {
-    const totalAmount = dataMarkers.length
-    const categoryItems = dataMarkers.filter(item => {
-      return item.category.toUpperCase() === info.category.toUpperCase()
-    })
-    console.log(categoryItems)
-    const categoryAmount = categoryItems.length
+    const { notifications } = this.state
+    const totalAmount = notifications.length
+    const categoryAmount = this.getCategoryTotal(info, notifications)
 
     this.setState({
       mapInfo: {
@@ -51,13 +57,21 @@ class Layout extends Component {
   }
 
   render() {
-    const { mapInfo } = this.state
+    const { mapInfo, notifications } = this.state
+    console.log(mapInfo, notifications)
     return (
       <div>
         <Header />
         <MenuBar />
-        <MapComponent setInfoMap={info => this.handleMapInfo(info)} />
-        <MapInfo {...mapInfo} />
+        {notifications.length > 0 ? (
+          <MapComponent
+            setInfoMap={info => this.handleMapInfo(info)}
+            notifications={notifications}
+          />
+        ) : (
+          <div />
+        )}
+        {notifications.length > 0 ? <MapInfo {...mapInfo} /> : <div />}
         <Participate />
         <AccessData />
         <About />

@@ -17,7 +17,7 @@ const AccessData = () => (
         </a>{' '}
         e{' '}
         <a
-          href="http://cocozap.datalabe.org/api/cocozap-data.json"
+          href="http://api.cocozap-admin.com.br/api/notifications"
           target="_blank"
           rel="noopener noreferrer"
         >
